@@ -121,7 +121,7 @@ for team in valid_teams:
     })
 
 df_plot = pd.DataFrame(rows)
-
+df_plot.to_csv('data/dumbbell_plot.csv', index=False)
 # Plot
 plt.figure(figsize=(10, 8))
 for i, row in df_plot.iterrows():
