@@ -1,19 +1,11 @@
-team,driver,points
-AlphaTauri,Tsunoda,32.0
-Alpine F1 Team,Ocon,74.0
-Aston Martin,Stroll,34.0
-Ferrari,Leclerc,159.0
-Haas F1 Team,Mazepin,0.0
-McLaren,Ricciardo,114.0
-Mercedes,Bottas,219.0
-Red Bull,Pérez,190.0
-Williams,Latifi,7.0
-AlphaTauri,Gasly,110.0
-Alpine F1 Team,Alonso,81.0
-Aston Martin,Vettel,43.0
-Ferrari,Sainz,163.5
-Haas F1 Team,Schumacher,0.0
-McLaren,Norris,160.0
-Mercedes,Hamilton,385.5
-Red Bull,Verstappen,388.5
-Williams,Russell,16.0
+team,driver1,driver2,points1,points2
+Williams,Latifi,Albon,2.0,4.0
+Aston Martin,Stroll,Vettel,18.0,37.0
+AlphaTauri,Tsunoda,Gasly,12.0,23.0
+Alfa Romeo,Zhou,Bottas,6.0,47.0
+Ferrari,Sainz,Leclerc,228.0,291.0
+Alpine F1 Team,Alonso,Ocon,81.0,89.0
+Haas F1 Team,Schumacher,Magnussen,12.0,21.0
+McLaren,Ricciardo,Norris,34.0,116.0
+Mercedes,Hamilton,Russell,233.0,262.0
+Red Bull,Pérez,Verstappen,291.0,433.0
