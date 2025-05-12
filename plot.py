@@ -1,6 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib
+
+matplotlib.rcParams.update({'axes.titlesize': 20})
+matplotlib.rcParams.update({'axes.labelsize': 20})
+matplotlib.rcParams.update({'xtick.labelsize': 18})
+matplotlib.rcParams.update({'ytick.labelsize': 18})
+matplotlib.rcParams.update({'legend.fontsize': 10})
+matplotlib.rcParams.update({'legend.title_fontsize': 10})
 
 # Carica i dati
 folder = 'data'
@@ -87,23 +95,27 @@ constructors = pd.read_csv(f'{folder}/constructors.csv')
 constructor_standings = constructor_standings.merge(races[['raceId', 'year']], on='raceId')
 constructor_standings = constructor_standings.merge(constructors[['constructorId', 'name']], on='constructorId')
 
+max_raceid_idx = constructor_standings.groupby(['name', 'year'])['raceId'].idxmax()
+constructor_standings = constructor_standings.loc[max_raceid_idx].reset_index(drop=True)
+
 # Somma i punti per team e anno
 points_per_team_year = constructor_standings.groupby(['year', 'name'])['points'].sum().reset_index()
 
 # Filtra per anni recenti (ad esempio, dal 2010 in poi)
 recent_years = points_per_team_year[points_per_team_year['year'] >= 2010]
+print(recent_years)
 
 # Pivot per grafico a barre impilate
 pivot = recent_years.pivot(index='year', columns='name', values='points').fillna(0)
 
 # Grafico
 pivot.plot(kind='bar', stacked=True, figsize=(12,6))
-plt.title('Points per Team (2010 - 2022)')
+plt.title('Points per Team (2010 - 2024)')
 plt.xlabel('Year')
 plt.ylabel('Points')
 plt.legend(title='Team', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.savefig(
-    'charts/constructor_points_stacked.pdf',
+    'charts/constructor_points_stacked.png',
     dpi=300,
 )

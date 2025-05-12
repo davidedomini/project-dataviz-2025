@@ -1,6 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+import matplotlib
+
+matplotlib.rcParams.update({'axes.titlesize': 20})
+matplotlib.rcParams.update({'axes.labelsize': 20})
+matplotlib.rcParams.update({'xtick.labelsize': 18})
+matplotlib.rcParams.update({'ytick.labelsize': 18})
+matplotlib.rcParams.update({'legend.fontsize': 10})
+matplotlib.rcParams.update({'legend.title_fontsize': 10})
+
+
 # Carica i CSV (modifica il path se servono)
 constructor_standings = pd.read_csv('data/constructor_standings.csv')
 races = pd.read_csv('data/races.csv')
@@ -54,6 +64,6 @@ plt.ylabel('Points')
 plt.legend(title='Team', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 plt.savefig(
-    'charts/top_teams_area_chart.pdf',
+    'charts/top_teams_area_chart.png',
     dpi=300,
 )
